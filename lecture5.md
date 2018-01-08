@@ -53,7 +53,7 @@ Reasons:
 
 1. IRQ is disabled by an FIQ and if a FIQ and an IRQ occur simultaneously the FIQ is serviced first.
 2. FIQ can be serviced as quickly as possible because
-    1. there is no need to branch as for an IRQ and
+    1. there is no need to branch as for an FIQ and
     2. normally user mode registers are pushed onto the stack when an interrupt occurs so that they are not corrupted but for an FIQ there is no need to stack registers r8 to r12.
 
 ## Instruction Pipelines
