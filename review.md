@@ -131,18 +131,80 @@ using twos complement, an adder will perform subtraction. Or use ones complement
 A: Running total
 B: Shifted multiplicand
 
+# Thumb Instructions
 
+Thumb instructions are 16 bit compressed ARM instructions.
 
+- Most Thumb instructions are not conditionally executable
+- only branches can be conditional.
+- Only r0 to r7 are used with most Thumb instructions.
+- Most Thumb instructions use one of the source registers as the destination register.
+- Immediate values can not be rotated.
+- There is no option on the setting of flags – most Thumb instructions set the flags.
 
+## Thumb – why?
 
+less memory cost & power
 
+# Architecture
 
+- Harvard architecture
 
+uses two separate data buses; one for instructions and one for load and store data.
 
+- von Neumann architecture
 
+(for a microprocessor, such as the ARM7)
 
+uses one data bus for both instructions and data.
 
+### Von Neumann or Harvard?
+- advantage: fewer lost clock cycles due to bus conflicts
+- drawback: greater complexity
 
+# Interrupts
+
+### FIQ
+
+a fast interrupt
+
+### IRQ
+
+a normal interrupt
+
+### FIQ or IRQ ?
+
+Generally the most important interrupt is assigned to the FIQ and all other interrupts are assigned to IRQ.
+
+Reasons:
+
+1. IRQ is disabled by an FIQ and if a FIQ and an IRQ occur simultaneously the FIQ is serviced first.
+2. FIQ can be serviced as quickly as possible because
+    1. there is no need to branch as for an FIQ (`0x0000001C`)
+    2. normally user mode registers are pushed onto the stack when an interrupt occurs so that they are not corrupted but for an FIQ there is no need to stack registers r8 to r12.
+
+### Latency
+
+The minimum latency for an IRQ is 7 clock cycles.
+
+> minimum because an IRQ could be interrupted by an FIQ.
+
+The minimum latency for an FIQ is 4 clock cycles.
+
+> no need to branch
+
+# Floating point numbers (See Lecture 3)
+
+# ARM Core
+
+![](lecture1/connections.png)
+
+### CPU
+
+- interprets the instructions stored in memory.
+- performs the calculations.
+- controls the flow of data along the data bus.
+- determines which memory address to use.
 
 
 
