@@ -88,7 +88,7 @@ the instruction code includes a number (or numbers) that identifies a register (
 
 the instruction code contains a value to be used.
 
-`0xE3A0C0A0` `MOVr12,#0xA0`
+`0xE3A0C0A0` `MOV r12, #0xA0`
 
 move into r12 the value 0x000000A0
 
